@@ -1,0 +1,18 @@
+xargs   // build and execute command lines from standard input
+
+-a file     // Read  items  from file instead of standard input
+
+-L max-lines    // Use at most max-lines nonblank input lines per command line
+
+-n max-args     // Use at most max-args arguments per command line
+
+-p      // Prompt the user about whether to run each command line and read a
+            line from the terminal.
+
+-r      // If  the standard input does not contain any nonblanks, do not run
+            the command.
+
+-t      // Print the command line on the standard error output before executing
+            it
+
+-x      // Exit if the size is exceeded.

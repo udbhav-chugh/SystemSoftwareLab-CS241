@@ -1,0 +1,12 @@
+tar -cf temp.tar MA201
+split -b5KB temp.tar "part"
+cat part* >temp2.tar
+tar -xf temp2.tar
+
+tar -cML 204800 -f A.tar  MA201
+n B.tar
+n C.tar
+
+tar -xMf A.tar
+n B.tar
+n C.tar

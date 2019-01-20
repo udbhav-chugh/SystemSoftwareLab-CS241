@@ -1,0 +1,193 @@
+Problem 1:  mkdir SCCS
+            touch iitg.txt
+            sccs create iitg.txt
+
+            sccs edit iitg.txt                                // Repeat 5 times
+            echo 'hello1' >> iitg.txt                         // Repeat 5 times
+            sccs delta iitg.txt                               // Repeat 5 times
+
+Problem 2:  sccs prt iitg.txt
+            sccs cdc -r1.3 iitg.txt
+
+Problem 3:  sccs get -m -p iitg.txt | grep '^1.4'
+            sccs sccsdiff -r1.4 -r1.5 iitg.txt  **
+
+Problem 4: sccs get -m -p iitg.txt
+           sccs get iitg.txt
+
+
+Problem 5: sccs get -c180818170000 iitg.txt
+
+Problem 6: sccs edit -x1.2,1.4 iitg.txt
+
+Problem 7: all: main.c
+                gcc main.c -o main
+
+           clean:
+                rm main
+
+Problem 8: all: cube.o rectangle.o circle.o sphere.o main.c
+	           gcc cube.o rectangle.o circle.o sphere.o main.c -o shapes
+
+           cube.o: cube.c connect.h
+	           gcc -c cube.c -o cube.o
+
+           rectangle.o: rectangle.c connect.h
+	           gcc -c rectangle.c -o rectangle.o
+
+circle.o: circle.c connect.h
+	gcc -c circle.c -o circle.o
+
+sphere.o: sphere.c connect.h
+	gcc -c sphere.c -o sphere.o
+
+clean:
+	rm *.o shapes
+
+Problem 9: HEADER=header.h
+           CC=gcc
+           MAIN=main.c
+
+           all: cube.o rectangle.o circle.o sphere.o $(MAIN)
+	           gcc *.o $(MAIN) -o shapes
+
+           %.o: %.c $(HEADER)
+	           $(CC) -c %.c -o %.o
+
+           echo:
+               @echo "\033[31mHello World\033[0m"
+               @echo "\033[32m"HEADER $(HEADER)"\033[0m"
+               @echo "\033[33m"CC $(CC)"\033[0m"
+               @echo "\033[34m"MAIN $(MAIN)"\033[0m"
+
+           clean:
+               rm *.o shapes
+
+Problem 10: HEADER=connect.h
+            CC=gcc
+            LIBCC=ar rc
+            MAIN=main.c
+            HEADERPATH=test/macro/libs2/
+
+            all: $(MAIN) libA.a libB.a
+	            $(CC) $^ -o shapes
+
+            libA.a: cube.o rectangle.o
+	            $(LIBCC) $@ $^
+
+            libB.a: sphere.o circle.o
+	            $(LIBCC) $@ $^
+
+            %.o: %.c $(HEADERPATH)$(HEADER)
+	            $(CC) -c $< -o $@
+
+            echo:
+	            @echo "\033[31mHello World\033[0m"
+	            @echo "\033[32m"HEADER $(HEADER)"\033[0m"
+	            @echo "\033[33m"CC $(CC)"\033[0m"
+	            @echo "\033[34m"MAIN $(MAIN)"\033[0m"
+
+            clean:
+	            rm *.o *.a shapes
+
+Problem 11: **mkfl.mk**
+            LIBCC=ar rc
+            HEADER=connect.h
+            CC=gcc
+            MAIN=main.c
+            HEADERPATH=test/macro/libs2/
+
+            all: $(MAIN) cube.o sphere.o rectangle.o circle.o
+
+            %.o: %.c $(HEADERPATH)$(HEADER)
+	            $(CC) -c $< -o $@
+
+            clean:
+                rm *.o shapes
+
+            **makefile**
+            LIBCC=ar rc
+            HEADER=connect.h
+            CC=gcc
+            MAIN=main.c
+            HEADERPATH=test/macro/libs2/
+
+            all: $(MAIN) libA.a libB.a
+	            $(CC) $^ -o shapes
+
+            libA.a: cube.o rectangle.o
+	            $(LIBCC) $@ $^
+
+            libB.a: sphere.o circle.o
+	            $(LIBCC) $@ $^
+
+            clean:
+                rm *.a
+
+            **combine.mk**
+            all: mkfl.mk makefile
+	            make -f mkfl.mk
+	            make
+
+            clean:
+                make -f mkfl.mk clean
+                make clean
+
+
+            $ make -f combine.mk
+            $ make -f combine.mk clean
+
+
+Problem 12: r
+            b 14
+            r
+            c
+
+Problem 13: b 14
+            r
+            n
+            step
+            n       // Repeat and input the values
+            p H
+            p L
+            p R
+            display surfaceArea
+            display radius
+            display curvedSurfaceArea
+            n       // Repeat
+
+Problem 14: b DisplayOutput
+            b main
+            n // Repeat
+            step
+            n // Repeat
+            display .....   // Repeat
+            info local
+            undisplay 2
+            undisplay 3     // Repeat
+            info display
+            step
+            n               // Repeat
+
+Problem 15: *Change position of free to outside while loop*
+
+            gcc -g fileDirOpen.c
+            gdb ./a.out /home/cse
+            b main
+            n   // Repeat
+            step
+            n   // Repeat
+            *Segmentation fault occurs in 'free' command*
+            *free command is shifted outside of while loop*
+
+Problem 16: gcc -g MatrixMultiply.c
+            gdb ./a.out
+            b main
+            n   // Repeat
+            display D[0][0]
+            display D[0][15]
+            display D[15][0]    // D[15][0] is not equal to zero. Thus, problem in memset
+            *D is initialized by two for loops instead of memset*
+            * &D is replaced by *D *
+            * double *A_row = A[i]; instead of uintptr_t line *
+            * A_row+k instead of A_row+k*8

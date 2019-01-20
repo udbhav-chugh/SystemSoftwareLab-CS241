@@ -1,0 +1,68 @@
+git config global user.name
+	   user.email
+git config --lsit
+git config user.email
+
+git init        // Initialize a directory to a git repository
+
+ssh cse@172.16.115.31       // Connect to remote host using ssh
+
+git clone git+ssh://cse@172.16.115.31/~/LavishGulati/git  // Clone a repo from the remote
+                                                             machine onto the local
+                                                             machine using ssh
+
+git pull git+ssh://cse@172.16.115.31/~/LavishGulati/git  // Pull a repo from the remote
+                                                            machine onto the local
+                                                            machine using ssh
+
+git show        // Shows objects in a dir (trees, commits etc)
+
+git diff        // Show changes which are not yet staged
+
+git clone       // Clones the remote repository into a newly created directory locally
+
+git add         // Stages all the changes made for commit
+
+git status      // Show the differences between the last commit and the current working
+                   tree
+
+git commit       // Save the final changes in a new commit with a log message
+
+git commit -am  //add and commit together
+
+git rm      // Deletes a file and stages it for commit (adds it)
+
+git mv      // Moves a file and stages it for commit (adds it)
+
+git pull    // Incorporates/downloads changes from a remote repository into the local
+               repository
+
+git push       // Updates remote repository with the changes made in the local repository
+
+git log     // Shows commit logs
+
+git revert      // Revert the changes of a particular commit and add a new commit with
+                    the reverted changes
+
+git reset --hard  // Resets the working tree and the commit log
+
+git reset --soft  // Doesnt reset working tree and commit log. just makes the changes
+                    which need to be committed
+
+git reset --mixed   // Resets the commit log but not the working tree. Need to commit the
+                        reset changes
+
+git diff --staged    // Check the changes which are staged compared to the last commit
+
+git reset --hard HEAD^  // HEAD^ means previous commit
+                        // HEAD^^ means second last commit and so on ..
+git reset HEAD profit.txt    //unstage file
+
+git checkout commitID   // Updates the files in working tree to that version of the commit
+
+git remote add uddu URL
+git push -u uddu master
+git pull uddu
+git checkout -b newbranch    //git branch -f branchname
+			    //git checkout branchname
+gti merge branchnae    //from master branch

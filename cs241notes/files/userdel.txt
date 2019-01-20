@@ -1,0 +1,9 @@
+userdel     // delete a user account and related files
+
+-f      // This option forces the removal of the user account,
+        even if the user is still logged in.
+
+-h      // Display help message and exit
+
+-r      // Files in the user's home directory will be removed
+    along with the home directory itself and the user's mail spool

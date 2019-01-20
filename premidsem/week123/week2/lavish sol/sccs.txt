@@ -1,0 +1,41 @@
+touch program.c                             // Creates a file program.c
+mkdir SCCS
+sccs create program.c       // Places program.c file under sccs control
+
+cmp ,program.c program.c          // No output means file match exactly
+rm ,program.c                 // Safe to remove history file ,program.c
+
+sccs edit program.c            // Check out program.c before editing it
+
+sccs get SCCS  // Retreive read-only copy of each file in the directory
+
+sccs delta program.c                // Check in after editing the file
+Corrected typo \ null pointer  // Add additional input line with
+                                  backslash
+
+sccs get program.c          // Get the most recent version of the file
+
+sccs diffs program.c              // Check pending changes in the file
+
+sccs prt iitg.txt                          // Display the version log
+
+sccs cdc -r1.3 iitg.txt       // Add a new comment to an older version
+
+sccs prs -r1.4 iitg.txt  // Display the version log of a specific
+                            version
+
+sccs get -m -p iitg.txt  // List all changes made and the delta in
+                            which each was made
+
+sccs get -m -p iitg.txt | grep '^1.4'  // List all changes made in the
+                                          version 1.4
+
+sccs get -c180818170000 iitg.txt  // Retrireves the latest version
+                                     prior to the date and time
+                                     yy mm dd hh mm ss format
+
+sccs edit -x1.3 program.c     // Exclude delta version 1.3 for editing
+
+sccs edit -x1.3,1.4 program.c               // Exclude multiple deltas
+
+sccs edit -x1.3-1.4 program.c     // Exclude multiple deltas by range

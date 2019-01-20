@@ -1,0 +1,80 @@
+Problem 1:
+    ls -r
+
+Problem 2:
+    rm *.txt *.doc
+
+Problem 3:
+    cat example*.txt
+
+Problem 4:
+    grep -l -r hello | xargs cp -t iitg
+
+Problem 5:
+    ls *[b-y]
+
+Problem 6:
+    du dir
+
+Problem 7:
+    wc -l *.c
+
+Problem 8:
+    Part 1: groupadd developer
+            cat /etc/group
+            sudo useradd Abhishek -m -d /home/Abhishek -g developer -s /bin/bash
+            passwd Abhishek
+    Part 2: id Abhishek && finger Abhishek
+            id Abhishek; finger Abhishek
+    Part 3: sudo useradd -d /home/Abhishek/second_user_home -g developer -s /bin/bash
+    Part 4:
+
+Problem 9:
+    Part 1: sudo usermod -l Sakshi Abhishek
+    Part 2: sudo groupmod -n developer2 developer
+    Part 3: usermod Sakshi -m -d /home/oman
+    Part 4: usermod Sakshi -s /usr/sbin/nologin
+
+Problem 10:
+    Part 1: sudo userdel Sakshi > output.txt
+    Part 2: sudo userdel -r Rishi > output.txt
+    Part 3: groupdel Sakshi
+    Part 4:
+
+Problem 11: cd /var/log
+            cat auth.log
+            cat auth.log | grep "failure"
+
+Problem 12:
+    Part 1: tar -tf 1.tar
+    Part 2: split -b 100M 1.tar 1.tar.part
+            cat 1.tar.part* > join.tar
+            tar -xvf join.tar
+
+Problem 13:
+    Part 1: sudo fdisk -l; umount /dev/sdb1; sudo mkfs.vfat /dev/sdb1
+    Part 2: sudo fdisk -l; umount /dev/sdb1; sudo mkfs.ntfs /dev/sdb1
+
+Problem 14: lblsk
+
+    Part 1: parted /dev/sdb; mklabel msdos; print free; mkpart primary
+    Part 2: use 'n' command multiple times
+    Part 3: Deleting the older partition(using 'd') and creating new partition(using 'n') of the required size (in fdisk)
+            Use 'resizepart' with parted
+    Part 4: For fdisk use 'd'
+            For parted use 'rm 1'
+
+Problem 15:
+    Part 1: sudo dd bs=4M if=input.iso of=/dev/sd<?> conv=fdatasync
+    Part 2: sudo dd if=/dev/sdb of=usb-image.iso
+    Part 3: sudo mount -o loop /home/shamanstears/Documents/test.iso dir/name.iso
+            sudo umount /media/iso/
+
+Problem 16: ln -s a.txt lallu   *Soft link*
+            ln a.txt lallu  *Hard Link*
+
+Bonus Questions:
+    Part 1: sudo testdisk
+            sudo testdisk /dev/sda
+    Part 2:
+    Part 3:

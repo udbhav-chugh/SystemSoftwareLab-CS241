@@ -1,0 +1,30 @@
+Problem 1: awk -v max=0 '{max++} END {print max}' sample.txt
+
+Problem 2: awk -v count=0 '{ if($2 == 515042969 && m[$3] == 0) {m[$3]++; count++} } END {print count}' sample.txt
+           awk -v count=0 '$2 == 515042969 { if(m[$3] == 0) {count++; m[$3]++} } END {print count}' sample.txt
+
+Problem 3: awk -v total=0 '$2 == 515042969 {total += $9} END {print total}' sample.txt
+
+Problem 4: awk '$11 == 1 {print $0}' sample.txt
+
+Problem 5: awk '$8 >= 0.001 && $8 <= 0.009 {print $0}' sample.txt
+
+Problem 6: awk -v max=0 '{if( length($0) > max) max = length($0) } END {print max}' sample.txt
+
+Problem 7: awk 'NR==100,NR==200 {print $2" \t "$8" \t "$9" \t "$10}' sample.txt
+
+Problem 8: awk '{ if ( $7 > 0 ) {print $0 >> "sample0.txt"} else {print $0 >> "sample1.txt"} }' sample.txt
+
+Problem 9: awk '{print $0 >> "File"(int((NR-1)/100)+1)".txt"}' sample.txt
+
+Problem 10: awk '{print NR"\t"$0}' sample.txt
+
+Problem 11: awk '{for(i = 1; i <= NF/2; i++) {temp = $i; $i = $(NF-i+1)"\t"; $(NF-i+1) = temp"\t"} } {print $0}' sample.txt
+
+Problem 12: awk -v max=0 '{if(length($0) > max) {max = length($0); jobId = $2} } END {print jobId}' sample.txt
+
+Problem 13: awk '{for(i = 1; i <= NF/2; i++) {temp = $i; $i = $(NF-i+1)"\t"; $(NF-i+1) = temp"\t"} } {print $0}' sample.txt
+
+Problem 14: awk '{ for(i = 1; i <= NF; i++) if($i != "Holiday") m[$i]++ } END { for(i in m) print i": \t"m[i] }' days.txt
+
+Problem 15: awk '{ m[$1] = $0 } END { for(i in m) print m[i] }' line.txt

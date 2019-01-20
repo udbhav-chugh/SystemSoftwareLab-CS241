@@ -1,0 +1,65 @@
+g++ -g Cone.cpp -o cone
+
+gdb cone
+
+b main  // Sets a breakpoint at function main
+b 22    // Sets a breakpoint at line number 22
+
+l   // Lists some part of your program
+
+f   // Shows on which line number the execution is right now
+
+next // Go onto the next line during execution
+n
+
+print mainVariable  // Prints the value of the variable
+p mainVariable
+
+r   // Run the program
+run
+
+step    // Step inside a function
+s
+
+backtrace   // Shows from where the functions were called and their line numbers
+bt
+
+info b  // Shows info about breakpoints
+
+delete 1    // Deletes breakpoint no. 1
+
+continue    // Directly reach to another breakpoint
+c
+
+f 2     // Takes to frame 2 (function 2) to print variables etc.
+
+info local  // Print all local variables
+
+display mainVariable    // Displays the value of the variable
+
+undisplay 2     // Removes the variable from display at line number 2
+
+info display    // Shows information about display
+
+en 2    // Enables 2nd breakpoint if it is disabled
+
+dis 2   // Disables 2nd breakpoint
+
+ignore rec_fxn 4    // Used for a recursive function. Ignores the first 4 breakpoints of
+                       the recursive function and enables the breakpoint on the 5th called
+                       of the function
+
+set logging on/off     // Logs the output of the gdb into a file named gdb.txt
+
+set logging file file.txt   // Logs the output of the gdb into the file named file.txt
+
+set logging overwrite on/off   // Overwrites the text already written in the log file and
+                               starts logging again into the file
+
+set logging redirect on/off    // Redirects all of the output of gdb to logging file
+                                  and not print on the console
+
+show logging    // Shows current logging settings
+
+rbreak std::ostream::operator<<     // Puts a breaking point on the first occurence of
+                                       the << operator

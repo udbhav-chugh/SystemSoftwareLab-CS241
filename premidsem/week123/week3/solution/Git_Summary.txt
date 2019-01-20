@@ -1,0 +1,54 @@
+# Git summary
+
+	- working copy > {add} staging area (index) > {commit} repository (final place)
+
+	- "git config"
+		-  	"git config --global user.name "Mayank Baranwal" " --> change username
+		- "git config --global user.email "mayank@gmail.com" " --> change email
+		- "git config --list" --> List current data
+		- "git config user.email" --> Display only user email
+
+	- "git init" --> Ini 	tialised a git directory
+
+	- "git add"
+		- "git add ." --> Add file to index area
+
+	- Committing changes: "git commit"
+		- "git commit -m "<Comment>" " --> Commit changes to repo with a message
+		- "git commit -am "<Comment>" " --> Dirctly commit from from staging area to repo
+		  (Takes all files in working area, don;t use if changing file names) 
+
+	- "git log" --> View log of commits
+		- "git log --author="Mayank" " -->  View log of commits of Mayank
+
+	- "git status" --> View all files in the working dir & staging area (Compare repo with working dir)
+
+	- "git diff" --> Difference between working area and staging area
+		- " git diff --staged" --> diff between stagin area and repo
+
+	- "git rm third.txt" --> Remove third.txt (make sure to commit)
+
+	- Renaming files: 
+		1. Rename in GUI; Delete old file, add new file name --> Git sees as old change
+		2. "git mv home.txt house.txt"
+		3. "git mv home.txt NewFolder/house.txt" --> Move file to different file
+
+	- Resetting changes and bringing back old versions
+		- "git checkout -- <file>" --> Takes from repo and replaces working copy
+		- "git checkout <log no> <file>" --> Beings the old version of the copy (need to commit the change)
+		- "git reset <log_no>" --> Goes to back to that log and deletes all logs before init
+		- "git reset --hard <log_no>" --> Goes back to that log, clears working dir and deletes all logs after that
+
+	- SSH:
+		- "ssh <username>@<IP_address>" --> Go to particular IP adress
+		- "git clone git+ssh://<username>@<IP_address>/~/<path>" --> Clone from given git dir
+		- "git pull git+ssh://<username>@<IP_address>/~/<path>" --> Pull from given git dir
+
+	- "git show" --> show the details of a commit (metadata + diff)
+
+	- GitHub Steps:
+		1. "git init" ..
+		2. "git add ."
+		3. "git commit -m ".." "
+		4. "git remote add <Nickname> <URL>" --> Give nickname for URL 
+		5. "git push -u master" --> Push all changes in local repo to GitHub repo (Give username and password)

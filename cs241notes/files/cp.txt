@@ -1,0 +1,34 @@
+cp      // copy files and directories
+
+--attributes-only   // don't copy the file data, just the attributes
+
+--backup    // make a backup of each existing destination file
+
+-b      // like --backup but does not accept an argument
+
+--copy-contents     // copy contents of special files when recursive
+
+-f      // if  an  existing  destination  file  cannot be opened, remove it and
+            try again
+
+-i      // prompt before overwrite
+
+-l      // hard link files instead of copying
+
+-n      // do not overwrite an existing file
+
+-r or -R    // copy directories recursively
+
+--remove-destination    // remove  each  existing  destination file before
+                            attempting to open it
+
+-s       //  make symbolic links instead of copying
+
+-u      // copy only when the SOURCE file is newer than the destination file
+            or when the destination file is missing
+
+-v      // explain what is being done
+
+-x      // stay on this file system
+
+-t      // copy all SOURCE arguments into DIRECTORY

@@ -1,0 +1,31 @@
+usermod     // modify a user account
+
+-a      // Add the user to the supplementary group(s). Use only
+    with the -G option.
+
+-d      // The user's new login directory.
+
+-e      // The date on which the user account will be disabled
+
+-f      // The number of days after a password expires until the
+           account is permanently disabled
+
+-g      // The group name or number of the user's new initial
+    login group.
+
+-l NEW_LOGIN    // The name of the user will be changed from LOGIN
+            to NEW_LOGIN.
+
+-L      // Lock a user's password.
+
+-m      // Move the content of the user's home directory to the
+    new location.
+
+-o      // When used with the -u option, this option allows to
+           change the user ID to a non-unique value.
+
+-s      // The name of the user's new login shell
+
+-u      // The new numerical value of the user's ID
+
+-U      // Unlock a user's password

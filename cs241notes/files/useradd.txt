@@ -1,0 +1,40 @@
+useradd     // create a new user or update default new user
+                information
+
+-d HOME_DIR     // The new user will be created using HOME_DIR as
+                the value for the user's login directory.
+
+-c COMMENT    // It is generally a short description of
+           the login, and is currently used as the field for the
+           user's full name.
+
+-e EXPIRE_DATE   // The date on which the user account will be
+                    disabled.
+
+-f INACTIVE    // The number of days after a password expires
+            until the account is permanently disabled.
+
+-g GROUP    // The group name or number of the user's initial
+            login group.
+
+-h     // Display help message and exit.
+
+-m      //  Create the user's home directory if it does not
+            exist.
+
+-M      // Do no create the user's home directory
+
+-N      // Do not create a group with the same name as the user,
+        but add the user to the group specified by the -g option
+
+-o      // Allow the creation of a user account with a duplicate
+           (non-unique) UID.
+
+-r     // Create a system account
+
+-u      // The numerical value of the user's ID
+
+-U      // Create a group with the same name as the user, and add
+           the user to this group.
+
+-s      // The name of the user's login shell.

@@ -1,0 +1,44 @@
+A.1 ls -r
+A.2 rm file1.txt file2.txt
+A.3 cat example*.txt
+A.4 cp `grep -ERL "hello" *.*` /Directory
+    grep -rl "hello"|xargs cp -t /Directory    
+A.5 ls | grep "[b-y].txt"
+A.6 du -sh /directory
+    du -a /directory
+A.7 wc -l *.c*
+A.8(1) useradd Abhishek -m -s /bin/bash -g users -c "Comment"
+   (2) id Abhishek 
+   (3) useradd Rishi -m -d /home/Abhishek/second -s /bin/bash -g `id -Gn Abhishek` -c "Rishi" 
+   (4) ls -l file2.txt file3.txt > /home/Abhishek/second/filess.txt
+A.9 (1) usermod Abhishek -l Sakshi -c "Sakshi"
+    (2) usermod Abhishek -g `id -G Sakshi`
+    (3) usermod Sakhsi -m -d /home/oman
+    (4) usermod Sakshi -s "no login"
+A.10(1) userdel Sakshi
+    (2) userdel Rishi -r 
+    (3) groupdel <groupname>
+    (4) ls -l /home/directory > <filename>
+A.11(1) cd /var/log/auth.log (Read theory)
+        grep "<pattern>" (pattern: authentication for failed login
+                                   login keyring for correct login )
+A.12 (1)tar -tf <tarfilename>
+     (2)split -b10KB $(tar -cf temp.tar /Directory) temp.tar "part"
+        tar -xf $(cat part*> new.tar) new.tar      (This is combining all files of type part* into new.tar and extracting from it) 
+A.13 (1)sudo mkfs.ntfs /dev/sdb1 
+     (2)sudo mkfs.vfat(or final file type) /dev/sdb1
+A.14 (1)mkpart
+     (2)n
+     (3)resizepart
+     (4)rm , d
+A.15 (1)umount /dev/sdb1
+        sudo dd if=file_name.iso of=/dev/sdb bs=1M
+        sudo eject /dev/sdb1
+     (2) sudo dd if=/dev/sdb of=usb-image.iso (if original removed)
+         sudo dd if=usb-image.iso of=/dev/sdb
+     (3)mount -t iso9660 ubuntu-18.04-desktop-amd64.iso /Destination_directory (First become root user)
+        umount -t iso9660 ubuntu-18.04-desktop-amd64.iso /mnt
+         
+A.16 (1)ln -s <filename> <linkname>
+
+

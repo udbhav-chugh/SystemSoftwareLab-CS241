@@ -1,0 +1,4 @@
+testdisk /dev/sdb
+parted
+	rescue
+

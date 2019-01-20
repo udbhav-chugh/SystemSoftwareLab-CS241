@@ -1,0 +1,124 @@
+Problem 1:
+    ls -lr
+
+Problem 2:
+    rm *.txt *.doc
+
+Problem 3:
+    cat example*.txt
+
+Problem 4:
+    grep -l -r hello | xargs cp -t iitg
+
+Problem 5:
+    ls *[b-y]
+
+Problem 6:
+    du -b dir
+
+Problem 7:
+    wc -l *.c
+
+Problem 8:
+    Part 1: sudo su
+            sudo useradd Abhishek -m -d /home/Abhishek -s /bin/bash
+
+    Follow up: passwd Abhishek
+               su Abhishek
+
+    Part 2: id Abhishek && finger Abhishek
+            id Abhishek; finger Abhishek
+
+    Follow up: mkdir second_user_home
+               cd second_user_home
+               touch file1.txt
+               exit
+
+    Part 3: useradd Rishi -g "$(id -g Abhishek)" -d /home/Abhishek/second_user_home/ -s /bin/bash
+
+    Follow up: cd /home/Abhishek/second_user_home
+               touch file2.txt
+               su - Rishi
+               touch file3.txt
+               exit
+
+    Part 4: stat -c "%n %U %G" *.txt
+
+Problem 9:
+    Part 1: usermod Abhishek -l Sakshi
+
+    Part 2: groupmod Abhishek -n Sakshi
+
+    Part 3: usermod Sakshi -m -d /home/oman
+            usermod Rishi -d /home/oman/second_user_home/
+
+    Part 4: usermod Sakshi -s /usr/sbin/nologin
+            su Sakshi
+
+Problem 10:
+    Part 1: userdel Sakshi
+
+    Part 2: userdel -r Rishi
+
+    Part 3: groupdel Sakshi
+
+    Part 4: stat -c "%n %U %G" *.txt
+
+Problem 11: cd /var/log
+            cat auth.log
+            cat auth.log | grep "failure"
+
+Problem 12:
+    Part 1: tar -c dir -f a.tar
+            tar -tf 1.tar
+
+    Part 2: split -b 100M 1.tar 1.tar.part
+            cat 1.tar.part* > join.tar
+            tar -xvf join.tar -OR- tar -xf join.tar
+
+Problem 13:
+    Part 1: sudo fdisk -l
+            umount /dev/sdb1
+            mkfs.vfat /dev/sdb1
+            mkntfs /dev/sdb1
+            mke2fs /dev/sdb1
+            mkfs.ext4 /dev/sdb1
+
+    Part 2: Same as Part 1
+
+Problem 14:
+    Part 1: parted /dev/sdb1
+            mklabel msdos -Or- mklabel gpt (Not necessary)
+            print free -OR- print
+            mkpart primary
+
+    Part 2: fdisk /dev/sdb1
+            n
+
+    Part 3:
+        fdisk: d
+               n
+        parted: resizepart
+
+    Part 4:
+        fdisk: d
+        parted: rm 1
+
+Problem 15:
+    Part 1: sudo dd bs=4M if=input.iso of=/dev/sd<?> conv=fdatasync
+
+    Part 2: sudo dd if=/dev/sdb of=usb-image.iso
+
+    Part 3: sudo mount -o loop /home/shamanstears/Documents/test.iso dir/name.iso
+            sudo umount /media/iso/
+
+Problem 16: ln -s /home/lavishgulati/Github/dir /home/lavishgulati/CS241
+            ln /home/lavishgulati/Github/dir /home/lavishgulati/CS241
+
+Bonus Questions:
+    Part 1: sudo testdisk
+            sudo testdisk /dev/sda
+
+    Part 2: 
+
+    Part 3:

@@ -1,0 +1,51 @@
+ls      // Lists all the contents in the directory
+
+-a      // Show hidden files also (Don't ignore entries starting with .)
+
+-C      // List entries by columns
+
+--color     // Color the output
+
+-g      // Like -l but dont list owner
+
+--group-directories-first   // Group directories before files
+
+-h      // With -l or -s, print human readable sizes (e.g., 1K 234M 2G)
+
+-i      // Print the index number of each file
+
+-l      // Use a long listing format
+
+-m      // fill width with a comma separated list of entries
+
+-n      // like -l, but list numeric user and group IDs
+
+-o      // like -l, but do not list group information
+
+-r      // reverse order while sorting
+
+-R      // list subdirectories recursively
+
+-s      // print the allocated size of each file, in blocks
+
+-S      // sort by file size, largest first
+
+-t      // sort by modification time, newest first
+
+-U      // do not sort; list entries in directory order
+
+-x      // list entries by lines instead of by columns
+
+-X      // Sort alphabetically by entry extension
+
+-1      // list one file per line
+
+--version   // output version information and exit
+
+--help      // display this help and exit
+
+ls *[a-z]   // Lists all files ending with small character a-z
+
+ls *[bd-z]  // Lists all files ending with b and d-z
+
+ls *[^cC]   // Skips files ending with c and C while listing

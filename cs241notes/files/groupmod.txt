@@ -1,0 +1,9 @@
+groupmod    // modify a group definition on the system
+
+-g      // The group ID of the given GROUP will be changed to GID
+
+-n      // The name of the group will be changed from GROUP to
+           NEW_GROUP name
+
+-o     // When used with the -g option, allow to change the group
+           GID to a non-unique value

@@ -1,0 +1,11 @@
+wc      // print newline, word, and byte counts for each file
+
+-c      // print the byte counts
+
+-m      // print the character counts
+
+-l      // print the newline counts
+
+-L      // print the maximum display width
+
+-w      // print the word counts

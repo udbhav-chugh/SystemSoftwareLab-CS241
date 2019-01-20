@@ -1,0 +1,34 @@
+A3 - Part B
+
+1) sed 's /ernet.in/ac.in/g' email_old.txt 
+2) sed 's/\<public\>/private/g' QuizProgram.java --> Note: Does not replace publicly with privately, only public with private (the '\' are required as '<' are special characters)
+3) sed -i 's/!!*/./g' msg.txt 	OR
+	 sed -i 's/!\{1,\}/./g' msg.txt 	OR
+	 sed -i -E 's/!{1,}/./g' msg.txt 	OR
+4) sed -i -E 's%([A-Z][a-z]{2}) ([0-9]{2}),%\2 \1%g' temp.txt
+		- By putting ptterns in (), treated as an argument for sed
+		- In replacement part, the arguments are reordered to displat the number first followed by date --> Argument given by \1 \2
+		- Space between \1 \2 to put space between output arguments
+		- While ',' is considered in input, since its not a part of any (), its not an argument and is exclused in output
+5) sed '/This/d' hello.txt 
+6) 	a. sed -n '/10.[3-5]/p' comm_ind_wi_day3_second_ings.txt 
+	b. sed '/10.[3-5]/d' comm_ind_wi_day3_second_ings.txt 
+	c. sed -n '5p' comm_ind_wi_day3_second_ings.txt 
+	d. sed -n '2,8p' comm_ind_wi_day3_second_ings.txt 
+	e. sed -n '$p' comm_ind_wi_day3_second_ings.txt 
+	f. sed -n '9,$p' comm_ind_wi_day3_second_ings.txt 
+	g. sed '9,11{s/Ashwin/Jadeja/g}' comm_ind_wi_day3_second_ings.txt 
+7) sed 's/I/We/2' msg.txt
+8) sed -E 's%([0-9]{9}) ([A-Z].*)*([0-9]{2})%Roll: \1 Name: \2 Age: \3%' sed_practice.txt 
+9) sed 's/1/one/g;s/2/two/g;s/3/three/g' digit_word.txt 
+10) sed -n '/[aeiouAEIOU]/p' vowel_fav.txt 
+11) sed 's/Apple iphone/Samsung S8/5;s/Apple iphone/Samsung S8/3' mobile_reviews.txt 
+	(NOTE: Make sure 5 comes before 3)
+12) sed -E 's/(^@[a-zA-Z]*)[0-9]/\1/' digits.txt 
+
+
+Note: -E operator allows for '(', ')', '{', '}' to be present with backslash in begininng
+		/ for agrument scan be replaced with %
+
+
+

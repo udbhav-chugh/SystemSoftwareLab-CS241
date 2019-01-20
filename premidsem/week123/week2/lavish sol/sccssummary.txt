@@ -1,0 +1,38 @@
+sccs commands (***Upto Creating Reports***):
+	
+	- "sccs create program.c" (Make sure that SCCS folder is already created)
+		- "cmp program.c ,program.c" (Chekc for any difference in files)
+		- "rm ,program.c"
+
+	- "sccs edit program.c" (Allow file program.c to be edited -> Open file with gedit post)
+		- Editing can be done by 1 user at a time only -> History file locked
+
+	- "sccs delta program.c" (Check in / finish making changes to a document and put comment detailing changes)
+		- "sccs delta 'sccs tell -u' " (sccs tell gives files being edited, -u tells files edited by you, can input any other username as well)
+		- Only line-by-line differences marked
+		- Delta slightly different versions -> ("-x") Can exclude changes made in a delta in future version
+		- SID : x.y -> x is relese num, y is level num (automatically incremented every delta)
+
+	- "sscs get program.c" (Retrieve a read only copy -> open in gedit)
+		- "sccs get SCCS" (Read only version for all s.file)
+		- "sccs get -r1.3 program.c" (Retrieve version 1.3 of program.c) 
+		- "sccs get -c880722120000 program.c" OR "sccs get -c88/07/22 12:00:00 program.c" (retrieves whatever version was current as of July 22, 1988 at 12:00 noon)
+		- "sccs get -k -G program.c" (Retrieves a writable copy of the text without checking out a new version)
+		- "sccs get -g program.c" (Latest version  of a file)
+		- "sccs get -m -p" (List line by line with version in which latest change made)
+
+	- "sccs diffs program.c" (See changes made in file before checking in/ saving file)
+	- "sccs sccsdiff -r1.1 -r1.2 program.c" (Difference between 2 checked-in versions)
+
+	- "sccs unedit program.c" (Undoes unsaved edits to file)
+
+	- "sccs delget program.c" (Delta + get combined)
+
+	- "sccs deledit program.c" (Delta + edit combined)
+
+	- "sccs info" (Find what files are being edited)
+	- "sccs check" (Very similar to info... idk difference)
+
+	- "sccs prt program.c" (listing of the version log...doesnt work for me)
+
+	- "sccs cdc -r1.2 program.c" (Change comments to v1.2 only if you are the creator)

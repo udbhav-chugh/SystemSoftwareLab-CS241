@@ -1,0 +1,50 @@
+sudo su     // Give terminal commands as the root useradd
+
+sudo useradd Abhishek -m -d /home/Abhishek -s /bin/bash
+            // Create a new user named Abhishek with the following
+            home directory and user login shell
+
+passwd Abhishek     // Set the password for Abhishek user
+
+su - Abhishek     // Switch to Abhishek user
+
+id Abhishek     // Display the ID (user and group) of Abhishek user
+
+finger Abhishek  // Display home directory, login name, shell name
+                etc. for user Abhishek
+
+id Abhishek; finger Abhishek -OR- id Abhishek && finger Abhishek
+            // Give two terminal commands at same time
+
+id -g Abhishek  // Prints the group ID of Abhisek user
+
+id -gn Abhisek  // Prints the group name of Abhishek user
+
+useradd Rishi -g "$(id -g Abhishek)"
+        // "$(command)" executes and concatenates the output
+        of the command into another command
+        // Creates a user named Rishi with group same as Abhishek
+
+stat -c "%n %U %G" *.txt    // Gives the statistics of the
+                    mentioned files as name of file, user name and
+                    group name resp.
+
+usermod Abhishek -l Sakshi  // Changes the user name of Abhishek
+                        to Sakshi
+
+groupmod Abhishek -n Sakshi // Changes the group name of Abhishek
+                        to Sakshi
+
+usermod Sakshi -md /home/oman   // Changes the home directory of
+                            Sakshi to new dir. oman and moves its
+                            contents
+
+usermod Sakshi -s /usr/sbin/nologin // Changes the shell of user
+                                to inhibit login
+
+userdel Sakshi    // Deletes the user Sakshi
+
+userdel -r Rishi    // Deletes the user Rishi along with its home
+                    directory
+
+groupdel Sakshi     // Deletes the group Sakshi

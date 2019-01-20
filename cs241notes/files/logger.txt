@@ -1,0 +1,40 @@
+logger [-i] [-f file] [-p priority] [-t tag] [message]...
+-f filename    //Uses the contents of file filename as the message to log. 
+
+-i             //Logs the process ID of the logger process with each line.
+
+-p priority   //Enters the message with the specified priority specifiedselectorentry ; the message priority can be
+	      //specified numerically, or as a facility.priority pair. The default priority is user.notice.
+
+-t tag   //Marks each line added to the log with the specified tag.
+
+message    //The string arguments whose contents are concatenated together in the specified order, separated by the space.
+
+Facility:
+
+auth   Activity related to requesting name and password getty, su, login
+authpriv  Same as auth but logged to a file that can only be read by selected users
+console  Used to capture messages that are generally directed to the system console
+cron  Messages from the cron system scheduler
+daemon  System daemon catch-all
+ftp   Messages relating to the ftp daemon
+kern  Kernel messages
+local0.local7   Local facilities defined per site
+lpr    Messages from the line printing system
+mail    Messages relating to the mail system
+mark    Pseudo-event used to generate timestamps in log files
+news    Messages relating to network news protocol nntp
+ntp        Messages relating to network time protocol
+user    Regular user processes
+uucp    UUCP subsystem
+
+Priority:
+merg   Emergency condition, such as an imminent system crash, usually broadcast to all users
+alert   Condition that should be corrected immediately, such as a corrupted system database
+crit   Critical condition, such as a hardware error
+err    Ordinary error
+Warning   Warning
+notice    Condition that is not an error, but possibly should be handled in a special way
+info     Informational message
+debug    Messages that are used when debugging programs
+none      Pseudo level used to specify not to log messages

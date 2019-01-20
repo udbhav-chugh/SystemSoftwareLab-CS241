@@ -1,0 +1,99 @@
+AWK: 
+
+	Syntax: awk options 'selection criteria {actions}' Input_file
+
+	AWK without I/P files: awk 'program'
+		- e.g. awk 'BEGIN {print "Don\47t Panic!" }' --> Prints "Don't Panic!
+			Note: Statements with 'BEGIN' executed before others
+
+	AWK with I/P Files: awk -f source-file input-file1 input-file2 ...
+		- '-f' necessary for source file (file with commands)
+		- Source file: .awk extension (not necessary)
+
+	AWK Scripts:
+		- e.g In file advice:
+				 #! /bin/awk -f      (Check if awk exists in /bin)
+				BEGIN { print "Don’t Panic!" }
+			  Run file with advice
+			  $ chmod +x advice
+			  $ advice
+
+	Comments: # <Comment> 	--> Do not use inside quotes on one-shot programs
+
+imp Variables;
+		- $0 : Entire line
+		- $1, $2, $3 : ith column of expression n
+
+awk '{print $1 " " $4}' Example.txt  // Prints column 1 and 4 with blank space in between
+
+awk '{print $1 "\t" $4}' Example.txt  // Prints column 1 and 4 with tab in between
+
+awk -F":" '{print $1}' /etc/passwd  // Specifies delimiter as ':' and prints column 1
+
+awk -F":" 'NR==1,NR==10{print $1}' /etc/passwd  // Prints column 1 with rows 1 to 10
+
+awk -F":" 'NR==1,NR==10{print $1,$3}' /etc/passwd  // Prints columns 1 and 3 with rows 1
+                                                to 10 separated by a space
+
+awk -F":" 'NR==1,NR==10{print length($1),$3}' /etc/passwd  // Prints no. of characters in
+                                                        each element of column 1
+
+awk -F":" ' NR==1,NR==10{printf "%-8s %3d\n",$1,$3} ' /etc/passwd  // Specifies formatting
+                                                   k                 style as in C
+
+awk -F":" '
+BEGIN {printf "%-8s %-3s\n", "User", "UID"}
+NR==1,NR==10{printf "%-8s %3d\n",$1,$3} '  // Execute two statements of awk. BEGIN is used
+                                            to perform a task before the input scan
+
+awk '/manager/ {print}' employee.txt  // Print lines which match the given pattern
+
+awk '{print NR,$0}' employee.txt  // Print line number before printing each line
+
+awk '{print $1,$NF}' employee.txt  // Print first and last columns
+                                    NF => no. of columns (fields)
+
+awk 'NF > 0' geeksforgeeks.txt  // Print any non empty line
+
+awk '{ if(length($0) > max) max = length($0)} END {print max}' geeksforgeeks.txt
+                                                    // To find length of the longest line
+
+awk 'END {print NR}' geeksforgeeks.txt  // Count lines in a file
+
+awk 'length($0) > 10' geeksforgeeks.txt  // Print lines with more than 10 characters
+
+awk '{if($3 == "B6") print $0}' geeksforgeeks.txt  // Search for given string in a column
+
+awk 'BEGIN { for(i = 1; i <= 6; i++) print "Square of", i, "is", i*i;}'
+                                                // Print squares of first 6 numbers
+
+awk -v max=0 '{max++} END {print max}' sample.txt  // -v is used to assign values to
+                    variables. END is used to perform a task at the end of the input scan
+
+awk -v count=0,count2=0 '{ if($2 == 515042969 && m[$3] == 0) {m[$3]++; count++} } END {print count}' sample.txt
+    // Count no. of distinct elements in a column
+
+awk 'BEGIN { for (i = 1; i <= 5; ++i) print i }' //for loop
+awk 'BEGIN {i = 1; while (i < 6) { print i; ++i } }' //while loop
+awk 'BEGIN {i = 1; do { print i; ++i } while (i < 6) }' //do while
+//break
+awk 'BEGIN {
+   sum = 0; for (i = 0; i < 20; ++i) { 
+      sum += i; if (sum > 50) break; else print "Sum =", sum 
+   } 
+}'
+//continue
+awk 'BEGIN {
+   for (i = 1; i <= 20; ++i) {
+      if (i % 2 == 0) print i ; else continue
+   } 
+}'
+
+//exit status
+awk 'BEGIN {
+   sum = 0; for (i = 0; i < 20; ++i) {
+      sum += i; if (sum > 50) exit(10); else print "Sum =", sum 
+   } 
+}'
+
+awk -F, '{ getline f < "grades.csv" ; print $0,f } ' OFS=, marks.csv > marksd.csv
